@@ -1,0 +1,48 @@
+/* 设置总容器样式，即显示窗口的大小 */
+#container {
+    width: 100%; /* 此宽度根据图片宽度调整 */
+    height: 740px; /* 此高度根据图片高度调整 */
+    overflow: hidden; /* 为了将图片隐藏 */
+    position: relative;
+    padding: 0;
+
+    /* 设置三张图片的总宽度，即图片容器的宽度 */
+    #list {
+        height: 740px;
+        left:0px;
+        position: absolute;
+        z-index: 1;
+        transition: 700ms ease;
+    }
+
+    /* 设置三张图片的高度 */
+    #list img {
+        float: left;
+        height: 740px;
+    }
+
+    /* 设置指示器容器的样式 */
+    #buttons {
+        position: absolute;
+        height: 10px;
+        width: 100px;
+        z-index: 2; /* 将buttons放在list上层 */
+        bottom: 20px;
+        right: 46%;
+        /* 设置指示器的样式 */
+    }
+
+    #buttons span {
+        float: left;
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
+        margin-right: 15px;
+        background: #FFFFFF;
+
+        /* 设置被选中的指示器的样式 */
+        &.on {
+            background: #00C06C;
+        }
+    }
+}

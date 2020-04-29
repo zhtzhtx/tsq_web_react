@@ -1,0 +1,91 @@
+/* 头部导航栏 */
+.title {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  line-height: 5rem;
+  position: relative;
+  z-index: 30;
+
+  .title_logo {
+    flex: 1 1 37.5rem;
+    background-color: #191D21;
+    text-align: center;
+  }
+
+  .title_logo img {
+    position: relative;
+    top: 0.625rem;
+  }
+}
+
+/* 顶部导航模块 */
+.head_main {
+  flex: 0 0 48.75rem;
+  display: flex;
+
+  .title_head {
+    flex: 1 0 8.125rem;
+    text-align: center;
+
+    /* 标题栏中的一级标题样式 */
+    .first_title {
+      display: block;
+      font-size: 1.125rem;
+      font-family: MicrosoftYaHei;
+      font-weight: 400;
+      cursor: pointer;
+
+      &:hover, &.first_title_hover {
+        background-color: #00C06C;
+        color: #fff;
+      }
+    }
+
+    /* 下拉列表 */
+    .guide_down {
+      display: block;
+      position: relative;
+      width: 8.125rem;
+
+      /* 下拉列表中的二级标题样式 */
+      .second_title {
+        display: block;
+        height: 3.125rem;
+        font-size: 1.125rem;
+        color: #FFFFFF;
+        background-color: #191C21;
+        opacity: 0.7;
+        vertical-align: middle;
+        line-height: 3.125rem;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* 英文版切换样式 */
+.title_version {
+  flex: 1 1 37.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* 去除router-link的下划线 */
+.router-link-active { // 点击时去掉下划线
+  text-decoration: none;
+  color: none;
+}
+
+a {
+  text-decoration: none; // 去掉原有链接文字下划线
+  color: #000;
+}
