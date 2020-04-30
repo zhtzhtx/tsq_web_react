@@ -9,7 +9,7 @@ export let initIntroductionState: introductionState = {
 
 
 export const getIntroductionData = async () => {
-    const result = await axios.get('/static/data/Introduction.json')
+    const result = await axios.get('https://zhtzhtx.github.io/tsq_web_react/static/data/Introduction.json')
     
     return result.data
 }

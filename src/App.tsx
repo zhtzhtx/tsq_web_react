@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 //引入头部组件
 import Header from './components/Header/Header'
@@ -39,6 +39,7 @@ function Page() {
       <Route path='/company' component={company}></Route>
       <Route path='/plan' component={plan}></Route>
       <Route path='/question' component={question}></Route>
+      <Redirect to='/'></Redirect>
     </Switch>
 
   )

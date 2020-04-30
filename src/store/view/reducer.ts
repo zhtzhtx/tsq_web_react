@@ -10,7 +10,7 @@ export let initViewState: viewState = {
 
 
 export const getViewData = async () => {
-    const result = await axios.get('/static/data/View.json')
+    const result = await axios.get('https://zhtzhtx.github.io/tsq_web_react/static/data/View.json')
     
     return result.data
 }

@@ -10,7 +10,7 @@ export let initNewsState: newsState = {
 
 
 export const getNewsData = async () => {
-    const result = await axios.get('/static/data/News.json')
+    const result = await axios.get('https://zhtzhtx.github.io/tsq_web_react/static/data/News.json')
     return result.data
 }
 
