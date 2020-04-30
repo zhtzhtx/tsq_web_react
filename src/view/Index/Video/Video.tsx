@@ -9,21 +9,33 @@ import './Video.styl'
     但'video-react'并没有编写‘类型声明模块’，不能直接通过@types/[module]下载，所以我们需自己声明该模块，方式为在react-app-env.d.ts
 文件中加入 "declare module 'video-react'"
 */
+/*
+    第二次修改时发现这里抱错：
+    Warning: Legacy context API has been detected within a strict-mode tree.
+    The old API will be supported in all 16.x releases, but applications using it should migrate to the new version.
+    Please update the following components: Player
+
+    Warning: Can't call setState on a component that is not yet mounted. This is a no-op, but it might indicate a bug 
+    in your application. Instead, assign to `this.state` directly or define a `state = {};` class property with the
+    desired state in the Bezel component.
+
+    起初我以为是我自己的问题，检测了好久，后来把整个useState删除后依然报错，说明是video-react的问题，希望官方尽快维护更新吧
+*/
 import { Player, BigPlayButton } from 'video-react'
 import "../../../../node_modules/video-react/dist/video-react.css";
 
 
 export default function Video() {
     //参数部分
-    let [showFlag, setShowFlag] = useState(-1)//视频是否显示
+    let [showFlag, setShowFlag] = useState({ display: "none" })//视频是否显示
     const body = document.querySelector("body") as HTMLElement//获取页面body
     //方法部分
     function videoShow() {
-        setShowFlag(showFlag = 1);
+        setShowFlag({ display: "inline" });
         body.style.overflow = "hidden";
     }
     function videoHide() {
-        setShowFlag(showFlag = -1);
+        setShowFlag({ display: "none" });
         body.style.overflow = "";
     }
     //景区宣传视频部分
@@ -40,12 +52,12 @@ export default function Video() {
     //视频弹窗部分
     function VideoMain() {
         return (
-            <div className="home_videoShow" >
+            <div className="home_videoShow" style={showFlag}>
                 <img src={require("../../../assets/images/home_close_btn.png")} onClick={() => (videoHide())} className="home_btnClose" alt="" />
                 <Player
                     fluid={false}
                     width="820"
-                    src={require("../../../assets/video/tsq_clip.mp4")}
+                    src="http://www.njtsq.com/uploadFile/video/tsq_clip.mp4"
                 >
                     <BigPlayButton position="center" />
                 </Player>
@@ -56,15 +68,15 @@ export default function Video() {
     //遮罩部分
     function Shade() {
         return (
-            <div className="home_shade" ></div>
+            <div className="home_shade" style={showFlag}></div>
         )
     }
 
     return (
         <div>
             <VideoImg />
-            {showFlag === 1 ? <VideoMain /> : null}
-            {showFlag === 1 ? <Shade /> : null}
+            <VideoMain />
+            <Shade />
         </div>
     )
 }

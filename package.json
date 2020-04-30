@@ -1,8 +1,8 @@
 {
   "name": "tsq_web",
   "version": "0.1.0",
-  "homepage": "http://zhang_hanting.gitee.io/tsq_web_react",
   "private": true,
+  "homepage": "http://zhang_hanting.gitee.io/tsq_web_react",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
